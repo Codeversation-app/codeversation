@@ -56,9 +56,6 @@
             </section>
 
             <section class="container" id="topics">
-                <div>
-                    <h3 class="text-center">Forum</h3>
-                </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-4">
                         <h3 class="lead">Topics</h3>
@@ -93,45 +90,91 @@
                                 <!-- use a thymeleaf template instead of hard coded topics and upvotes/downvotes -->
                                 <a href="/general">Random Post 1</a>
                                 <div class="float-right">
-                                    <span class="fa fa-angle-up"></span> 15 
-                                    <span class="fa fa-angle-down"></span> 2
+                                    <span class="fa fa-angle-up" style="color: green;"></span> 15 
+                                    <span class="fa fa-angle-down" style="color: red;"></span> 2
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <a href="/questions ">Random Post 2</a>
                                 <div class="float-right">
-                                    <span class="fa fa-angle-up"></span> 14 
-                                    <span class="fa fa-angle-down"></span> 2
+                                    <span class="fa fa-angle-up" style="color: green;"></span> 14 
+                                    <span class="fa fa-angle-down" style="color: red;"></span> 2
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <a href="/collab-corner">Random Post 3</a>
                                 <div class="float-right">
-                                    <span class="fa fa-angle-up"></span> 10 
-                                    <span class="fa fa-angle-down"></span> 0
+                                    <span class="fa fa-angle-up" style="color: green;"></span> 10 
+                                    <span class="fa fa-angle-down" style="color: red;"></span> 0
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <a href="/news">Random Post 4</a>
                                 <div class="float-right">
-                                    <span class="fa fa-angle-up"></span> 8 
-                                    <span class="fa fa-angle-down"></span> 0
+                                    <span class="fa fa-angle-up" style="color: green;"></span> 8 
+                                    <span class="fa fa-angle-down" style="color: red;"></span> 0
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <a href="/jobs">Random Post 5</a>
                                 <div class="float-right">
-                                    <span class="fa fa-angle-up"></span> 9 
-                                    <span class="fa fa-angle-down"></span> 3
+                                    <span class="fa fa-angle-up" style="color: green;"></span> 9 
+                                    <span class="fa fa-angle-down" style="color: red;"></span> 3
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-4">
                         <h3 class="lead">New Questions</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <!-- use a thymeleaf template instead of hard coded questions -->
+                                <a href="/forum/questions/${id}">How do I commit?</a>
+                                <span class="badge badge-secondary float-right">New</span>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/forum/questions/${id}">Is JavaScript just Java?</a>
+                                <span class="badge badge-secondary float-right">New</span>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/forum/questions/${id}">What is CSS?</a>
+                                <span class="badge badge-secondary float-right">New</span>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/forum/questions/${id}">What is love?</a>
+                                <span class="badge badge-secondary float-right">New</span>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/forum/questions/${id}">Why do I suck at coding?</a>
+                                <span class="badge badge-secondary float-right">New</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
+                
+            <section class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <footer class="page-footer bg-dark">
+                <div class="text-center">
+                    <a href="https://github.com/Codeversation-app/codeversation"><span class="fa fa-github"></span>Github</a>
+                </div>
+                
+                <div class="footer-copyright text-center py-3 font-small">
+                    © 2018 Copyright: 
+                    <p>Codeversation</p>
+                </div>
+            </footer>
         </main>
     <!-- jquery, popper, and bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
