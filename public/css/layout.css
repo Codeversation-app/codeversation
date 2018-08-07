@@ -1,0 +1,30 @@
+
+
+ul {
+    list-style: none;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+main {
+    margin-top: 2em;
+}
+
+.section-content {
+    margin-top: 1em;
+}
+
+.form-signin {
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+#message {
+    margin: 2em 0;
+}
+
+footer {
+    margin-top: 2em;
+}
