@@ -62,23 +62,23 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <!-- use a thymeleaf template instead of hard coded numbers to display the number of new posts -->
-                                <a href="/general">General Chat</a>
+                                <a href="/forum/general">General Chat</a>
                                 <span class="badge badge-primary badge-pill float-right">25</span>
                             </li>
                             <li class="list-group-item">
-                                <a href="/questions ">Questions &amp; Answers</a>
+                                <a href="/forum/questions ">Questions &amp; Answers</a>
                                 <span class="badge badge-primary badge-pill float-right">14</span>
                             </li>
                             <li class="list-group-item">
-                                <a href="/collab-corner">Collaboration Corner</a>
+                                <a href="/forum/collab-corner">Collaboration Corner</a>
                                 <span class="badge badge-primary badge-pill float-right">2</span>
                             </li>
                             <li class="list-group-item">
-                                <a href="/news">Tech News</a>
+                                <a href="/forum/news">Tech News</a>
                                 <span class="badge badge-primary badge-pill float-right">9</span>
                             </li>
                             <li class="list-group-item">
-                                <a href="/jobs">Job Postings</a>
+                                <a href="/forum/jobs">Job Postings</a>
                                 <span class="badge badge-primary badge-pill float-right">13</span>
                             </li>
                         </ul>
@@ -88,35 +88,35 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <!-- use a thymeleaf template instead of hard coded topics and upvotes/downvotes -->
-                                <a href="/general">Random Post 1</a>
+                                <a href="/forum/general/${postId}">Random Post 1</a>
                                 <div class="float-right">
                                     <span class="fa fa-angle-up" style="color: green;"></span> 15 
                                     <span class="fa fa-angle-down" style="color: red;"></span> 2
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <a href="/questions ">Random Post 2</a>
+                                <a href="/forum/questions/${postId}">Random Post 2</a>
                                 <div class="float-right">
                                     <span class="fa fa-angle-up" style="color: green;"></span> 14 
                                     <span class="fa fa-angle-down" style="color: red;"></span> 2
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <a href="/collab-corner">Random Post 3</a>
+                                <a href="/forum/collab-corner/${postId}">Random Post 3</a>
                                 <div class="float-right">
                                     <span class="fa fa-angle-up" style="color: green;"></span> 10 
                                     <span class="fa fa-angle-down" style="color: red;"></span> 0
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <a href="/news">Random Post 4</a>
+                                <a href="/forum/news/${postId}">Random Post 4</a>
                                 <div class="float-right">
                                     <span class="fa fa-angle-up" style="color: green;"></span> 8 
                                     <span class="fa fa-angle-down" style="color: red;"></span> 0
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <a href="/jobs">Random Post 5</a>
+                                <a href="/forum/jobs/${postId}">Random Post 5</a>
                                 <div class="float-right">
                                     <span class="fa fa-angle-up" style="color: green;"></span> 9 
                                     <span class="fa fa-angle-down" style="color: red;"></span> 3
