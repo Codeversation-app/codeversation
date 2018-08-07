@@ -5,3 +5,15 @@ ul {
 .navbar-brand img {
     height: 50px;
 }
+
+main {
+    margin-top: 1em;
+}
+
+.section-content {
+    margin-top: 1em;
+}
+
+footer {
+    margin-top: 1em;
+}
