@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import server.models.User;
 import server.repositories.UserRepository;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/login")
 @SessionAttributes("username")
@@ -49,5 +52,9 @@ public class AuthController {
 //
 //    }
 
+    @RequestMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
 
 }
