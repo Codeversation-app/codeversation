@@ -31,8 +31,6 @@ public class AuthController {
     ) {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
         User user = userRepository.save(new User(username, hashed));
-        System.out.println("username: " + username);
-        System.out.println("hashed password: " + hashed);
 
         model.addAttribute("username", username);
 
