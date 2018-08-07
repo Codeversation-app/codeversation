@@ -1,7 +1,7 @@
 'use strict'
 
-$('#input-password, #pass-match').on('keyup', function () {
-    if ($('#input-password').val() == $('#pass-match').val() && $('#input-password').val() != null) {
+$('#input-password, #input-match').on('keyup', function () {
+    if ($('#input-password').val() == $('#input-match').val() && $('#input-password').val() != null) {
       $('#message').html('Passwords match').css('color', 'green');
       $('#register-btn').removeClass('disabled');
     } else 
