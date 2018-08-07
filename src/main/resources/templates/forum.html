@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Welcome to the Codeversation!</title>
 </head>
 <body>
     <h2>Codeversation Forum</h2>
+
+    <p>Logged in as <i th:text="${username}" /></p>
+    <p>Edit your <a href="/profile">profile</a></p>
+
     <p><a href="/forum/general">Link to General Chat</a></p>
     <p><a href="/forum/questions">Questions & Answers</a></p>
     <p><a href="/forum/collab-corner">Link to Collaboration Corner</a></p>
