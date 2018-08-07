@@ -10,4 +10,6 @@ public class PostController {
     public String getPostForm(){
         return "new-post";
     }
+
+
 }
