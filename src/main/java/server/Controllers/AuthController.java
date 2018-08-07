@@ -48,8 +48,6 @@ public class AuthController {
         }
 
         User user = userRepository.save(new User(username, hashed, 0));
-        System.out.println("username: " + username);
-        System.out.println("hashed password: " + hashed);
 
         model.addAttribute("username", username);
 
