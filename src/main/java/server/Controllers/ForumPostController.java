@@ -31,4 +31,40 @@ public class ForumPostController {
 
         return "section";
     }
+
+    @RequestMapping("/questions")
+    public String getQuestions (Model model) {
+        List<PostThread> postThread = postThreadRepository.findByCategory("questions");
+        Collections.sort(postThread);
+        model.addAttribute("threads", postThread);
+
+        return "section";
+    }
+
+    @RequestMapping("/collab-corner")
+    public String getCollab (Model model) {
+        List<PostThread> postThread = postThreadRepository.findByCategory("collab");
+        Collections.sort(postThread);
+        model.addAttribute("threads", postThread);
+
+        return "section";
+    }
+
+    @RequestMapping("/news")
+    public String getNews (Model model) {
+        List<PostThread> postThread = postThreadRepository.findByCategory("news");
+        Collections.sort(postThread);
+        model.addAttribute("threads", postThread);
+
+        return "section";
+    }
+
+    @RequestMapping("/jobs")
+    public String getJobs (Model model) {
+        List<PostThread> postThread = postThreadRepository.findByCategory("jobs");
+        Collections.sort(postThread);
+        model.addAttribute("threads", postThread);
+
+        return "section";
+    }
 }
