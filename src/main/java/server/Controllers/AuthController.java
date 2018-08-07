@@ -27,7 +27,7 @@ public class AuthController {
         return "redirect:/forum";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping
     public String getLoginForm() {
         return "login";
     }
