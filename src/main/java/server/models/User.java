@@ -18,9 +18,10 @@ public class User {
     // required default constructor
     public User() {}
 
-    public User(String username, String password) {
+    public User(String username, String password, int status) {
         this.username = username;
         this.passhash = password;
+        this.status = status;
     }
 
     public boolean checkPassword(String attempt) {
