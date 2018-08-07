@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 @SessionAttributes("username")
 @RequestMapping("/forum")
-public class ForumPostController {
+public class ForumSectionController {
     @Autowired
     PostThreadRepository postThreadRepository;
 
