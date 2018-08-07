@@ -1,3 +1,5 @@
+
+
 ul {
     list-style: none;
 }
@@ -7,7 +9,7 @@ ul {
 }
 
 main {
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .section-content {
@@ -19,6 +21,10 @@ main {
     margin: 0 auto;
 }
 
+#message {
+    margin: 2em 0;
+}
+
 footer {
-    margin-top: 1em;
+    margin-top: 2em;
 }

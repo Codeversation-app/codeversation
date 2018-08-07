@@ -46,10 +46,10 @@
         <main>
             <section class="container" id="welcome-msg">
                 <div class="jumbotron">
-                    <h1 class="display-4">Hello!</h1>
+                    <h1 id="type-writer" class="display-4"></h1>
                     <p class="lead">Welcome to Codeversation, a community for developers and students to chat, share ideas, ask &amp; answer questions.</p>
                     <hr class="my-4">
-                    <p class="lead">Login or register to join the Codeversation!</p>
+                    <h4 class="lead">Login or register to join the Codeversation!</h4>
                     <a href="/login" type="button" class="btn btn-primary">Login</a>
                     <a href="/register"type="button" class="btn btn-secondary">Register</a>
                 </div>
@@ -57,7 +57,7 @@
 
             <section class="container" id="topics">
                 <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="col-sm-12 col-md-12 col-lg-4 section-content">
                         <h3 class="lead">Topics</h3>
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -156,7 +156,11 @@
             <section class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6">
-
+                        <div id="news-carousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-item activa">
+                                
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -176,6 +180,8 @@
                 </div>
             </footer>
         </main>
+    
+    <script src="/public/js/typewriter.js"></script>
     <!-- jquery, popper, and bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
