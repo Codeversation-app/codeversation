@@ -10,6 +10,8 @@ import server.repositories.ReplyRepository;
 import server.repositories.PostThreadRepository;
 
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
@@ -25,6 +27,21 @@ public class ForumSectionController {
     @RequestMapping("/general")
     public String getGeneralChat (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("general");
+        Iterator<PostThread> iterator = postThread.iterator();
+        LinkedList<PostThread> postOrder = new LinkedList<>();
+        //if(model.asMap().get("sortMethod")=="score"){
+        //    Collections.sort(postThread,score);
+        //}
+        //This boolean is just here as a placeholder so the site can be ran before we have everything set up.
+        if(false){}
+        else{
+            while(iterator.hasNext()) {
+                postOrder.push(iterator.next());
+            }
+            while(!postOrder.isEmpty()){
+                postThread.add(postOrder.pop());
+            }
+        }
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -33,6 +50,21 @@ public class ForumSectionController {
     @RequestMapping("/questions")
     public String getQuestions (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("questions");
+        Iterator<PostThread> iterator = postThread.iterator();
+        LinkedList<PostThread> postOrder = new LinkedList<>();
+        //if(model.asMap().get("sortMethod")=="score"){
+        //    Collections.sort(postThread,score);
+        //}
+        //This boolean is just here as a placeholder so the site can be ran before we have everything set up.
+        if(false){}
+        else{
+            while(iterator.hasNext()) {
+                postOrder.push(iterator.next());
+            }
+            while(!postOrder.isEmpty()){
+                postThread.add(postOrder.pop());
+            }
+        }
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -41,6 +73,21 @@ public class ForumSectionController {
     @RequestMapping("/collab-corner")
     public String getCollab (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("collab");
+        Iterator<PostThread> iterator = postThread.iterator();
+        LinkedList<PostThread> postOrder = new LinkedList<>();
+        //if(model.asMap().get("sortMethod")=="score"){
+        //    Collections.sort(postThread,score);
+        //}
+        //This boolean is just here as a placeholder so the site can be ran before we have everything set up.
+        if(false){}
+        else{
+            while(iterator.hasNext()) {
+                postOrder.push(iterator.next());
+            }
+            while(!postOrder.isEmpty()){
+                postThread.add(postOrder.pop());
+            }
+        }
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -49,6 +96,21 @@ public class ForumSectionController {
     @RequestMapping("/news")
     public String getNews (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("news");
+        Iterator<PostThread> iterator = postThread.iterator();
+        LinkedList<PostThread> postOrder = new LinkedList<>();
+        //if(model.asMap().get("sortMethod")=="score"){
+        //    Collections.sort(postThread,score);
+        //}
+        //This boolean is just here as a placeholder so the site can be ran before we have everything set up.
+        if(false){}
+        else{
+            while(iterator.hasNext()) {
+                postOrder.push(iterator.next());
+            }
+            while(!postOrder.isEmpty()){
+                postThread.add(postOrder.pop());
+            }
+        }
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -57,6 +119,21 @@ public class ForumSectionController {
     @RequestMapping("/jobs")
     public String getJobs (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("jobs");
+        Iterator<PostThread> iterator = postThread.iterator();
+        LinkedList<PostThread> postOrder = new LinkedList<>();
+        //if(model.asMap().get("sortMethod")=="score"){
+        //    Collections.sort(postThread,score);
+        //}
+        //This boolean is just here as a placeholder so the site can be ran before we have everything set up.
+        if(false){}
+        else{
+            while(iterator.hasNext()) {
+                postOrder.push(iterator.next());
+            }
+            while(!postOrder.isEmpty()){
+                postThread.add(postOrder.pop());
+            }
+        }
         model.addAttribute("threads", postThread);
 
         return "section";
