@@ -1,5 +1,7 @@
 package server.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -11,15 +13,14 @@ public class PostThread {
     @GeneratedValue
     @SequenceGenerator(name = "post-thread-generator")
     public int id;
-    public int userid;
     public String title;
     public String category;
     public String content;
     public String date;
 
-//    @OneToMany
-//    @JoinColumn(name = "username")
-//    public User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userid")
+    public User user;
 
     public PostThread(){}
 
@@ -29,5 +30,4 @@ public class PostThread {
         this.content = content;
         this.date = date;
     }
-
 }

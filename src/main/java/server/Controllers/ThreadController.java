@@ -37,6 +37,7 @@ public class ThreadController {
             @RequestParam String category,
             @RequestParam String content
     ) {
+        int userid = userRepository.;
 
         String pattern = "MMM dd yyyy HH:mm a z";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
