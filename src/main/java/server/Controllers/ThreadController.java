@@ -10,6 +10,10 @@ import server.repositories.ReplyRepository;
 import server.repositories.PostThreadRepository;
 import server.repositories.UserRepository;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 @Controller
 @RequestMapping("/new-post")
 public class ThreadController {
@@ -33,7 +37,14 @@ public class ThreadController {
             @RequestParam String category,
             @RequestParam String content
     ) {
-        PostThread thread = postThreadRepository.save(new PostThread(title, category, content));
+
+        String pattern = "MMM dd yyyy HH:mm a z";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+
+        System.out.println(date);
+
+        PostThread thread = postThreadRepository.save(new PostThread(title, category, content, date));
 
         return "redirect:/forum";
     }

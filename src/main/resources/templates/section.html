@@ -44,13 +44,17 @@
         </nav>
 
         <main>
+            <div class="container">
+                <ul class="list-group list-group-flush" th:each="thread : ${threads}">
+                    <li class="list-group-item">
+                        <a href="/forum" class="font-weight-bold" th:text="${thread.title}"></a>
+                        <div class="text-secondary small" th:text="'Posted by ' + ${thread.userid} + ' on ' + ${thread.date}"></div>
+                        <span class="badge badge-primary badge-pill">14</span>
+                    </li>
+                </ul>
+            </div>
 
-            <ul th:each="thread : ${threads}">
-                <li>
-                    <a th:text="${thread.title}"></a>
-                    <span th:text="${thread.category}"></span>
-                </li>
-            </ul>
+
 
             <footer class="page-footer bg-dark">
                 <div class="text-center">

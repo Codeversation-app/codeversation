@@ -1,6 +1,8 @@
 package server.models;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "threads")
@@ -13,13 +15,19 @@ public class PostThread {
     public String title;
     public String category;
     public String content;
+    public String date;
 
-    public PostThread (){}
+//    @OneToMany
+//    @JoinColumn(name = "username")
+//    public User user;
 
-    public PostThread (String title, String category, String content) {
+    public PostThread(){}
+
+    public PostThread (String title, String category, String content, String date) {
         this.title = title;
         this.category = category;
         this.content = content;
+        this.date = date;
     }
 
 }
