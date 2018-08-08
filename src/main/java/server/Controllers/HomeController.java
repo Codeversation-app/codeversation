@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @SessionAttributes("username")
 public class HomeController {
@@ -11,4 +14,5 @@ public class HomeController {
     public String home() {
         return "index";
     }
+
 }

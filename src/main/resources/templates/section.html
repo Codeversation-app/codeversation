@@ -39,14 +39,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for posts..." aria-label="search">
-                    <button class="btn btn-outline-success my-2 my-sm-0">Submit</button>
-                </form>
+                <div class="btn-group" role="group">
+                    <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
+                    <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
+                </div>
             </div>
         </nav>
 
@@ -62,7 +59,7 @@
                 <ul class="list-group list-group-flush" th:each="thread : ${threads}">
                     <li class="list-group-item">
                         <a href="/forum/${threadId}" class="font-weight-bold" th:text="${thread.title}"></a>
-                        <div class="text-secondary small" th:text="'Posted by ' + ${thread.userid} + ' on ' + ${thread.date}"></div>
+                        <div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>
                         <span class="badge badge-primary badge-pill">14</span>
                     </li>
                 </ul>

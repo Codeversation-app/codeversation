@@ -1,27 +1,37 @@
 package server.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "threads")
+@SessionAttributes("username")
 public class PostThread {
     @Id
     @GeneratedValue
     @SequenceGenerator(name = "post-thread-generator")
     public int id;
-    public int userid;
     public String title;
     public String category;
     public String content;
     public String date;
 
-//    @OneToMany
-//    @JoinColumn(name = "username")
-//    public User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userid")
+    public User user;
 
     public PostThread(){}
+
+    public PostThread (String title, String category, String content, String date, User user) {
+        this(title, category, content, date);
+        this.user = user;
+    }
 
     public PostThread (String title, String category, String content, String date) {
         this.title = title;
@@ -29,5 +39,4 @@ public class PostThread {
         this.content = content;
         this.date = date;
     }
-
 }
