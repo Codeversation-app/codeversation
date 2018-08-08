@@ -31,6 +31,7 @@ public class ForumSectionController {
     @RequestMapping("/general")
     public String getGeneralChat (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("general");
+        List<PostThread> displayList = new List;
         Iterator<PostThread> iterator = postThread.iterator();
         LinkedList<PostThread> postOrder = new LinkedList<>();
         //if(model.asMap().get("sortMethod")=="score"){
@@ -42,6 +43,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }
