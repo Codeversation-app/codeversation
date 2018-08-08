@@ -46,25 +46,30 @@
 
         <main>
             <div class="container">
-                <div class="form-group">
+
                     <form action="/new-post" method="POST">
-                        <label for="titleFormInput">Title</label>
-                        <input type="text" class="form-control" id="titleFormInput" placeholder="Enter a title for your post" name="title">
-
-                        <label for="categorySelection">Category</label>
-                        <select class="form-control" id="categorySelection" name="category">
-                            <option>general</option>
-                            <option>questions</option>
-                            <option>collab</option>
-                            <option>news</option>
-                            <option>jobs</option>
-                        </select>
-
-                        <label for="postBody">Write your post here</label>
-                        <textarea class="form-control" id="postBody" rows="9" name="content"></textarea>
-
-                        <a href="/forum" class="btn btn-secondary" role="button">Cancel</a>
-                        <input class="btn btn-primary" type="submit">
+                        <div class="form-group">
+                            <label for="titleFormInput">Title</label>
+                            <input type="text" class="form-control" id="titleFormInput" placeholder="Enter a title for your post" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="categorySelection">Category</label>
+                            <select class="form-control" id="categorySelection" name="category">
+                                <option>general</option>
+                                <option>questions</option>
+                                <option>collab</option>
+                                <option>news</option>
+                                <option>jobs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="postBody">Write your post here</label>
+                            <textarea class="form-control" id="postBody" rows="9" name="content"></textarea>
+                        </div>
+                        <div>
+                            <a href="/forum" class="btn btn-secondary" role="button">Cancel</a>
+                            <input class="btn btn-primary" type="submit">
+                        </div>
                     </form>
                 </div>
             </div>
