@@ -25,6 +25,10 @@ main {
     margin: 0 auto;
 }
 
+.one-em {
+    margin-top: 1em;
+}
+
 #message {
     margin: 2em 0;
 }
