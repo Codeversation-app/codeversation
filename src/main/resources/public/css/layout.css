@@ -8,6 +8,10 @@ ul {
     height: 50px;
 }
 
+.dropdown-item {
+    color: #007bff;
+}
+
 main {
     margin-top: 2em;
 }

@@ -23,8 +23,15 @@
 
             <div class="collapse navbar-collapse" id="navbar-content">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/forum">Forum</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/forum/general">General</a>
+                            <a class="dropdown-item" href="/forum/questions">Q & A</a>
+                            <a class="dropdown-item" href="/forum/collab-corner">Collab</a>
+                            <a class="dropdown-item" href="/forum/news">Tech News</a>
+                            <a class="dropdown-item" href="/forum/jobs">Jobs</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">My Profile</a>
@@ -54,20 +61,18 @@
                     </li>
                 </ul>
             </div>
-
-
-
-            <footer class="page-footer bg-dark">
-                <div class="text-center">
-                    <a href="https://github.com/Codeversation-app/codeversation" target="_blank"><span class="fab fa-github section-content"></span> Github</a>
-                </div>
-
-                <div class="footer-copyright text-center py-3 font-small">
-                    © 2018 Copyright:
-                    <p>Codeversation</p>
-                </div>
-            </footer>
         </main>
+
+        <footer class="page-footer bg-dark">
+            <div class="text-center">
+                <a href="https://github.com/Codeversation-app/codeversation" target="_blank"><span class="fab fa-github section-content"></span> Github</a>
+            </div>
+
+            <div class="footer-copyright text-center py-3 font-small">
+                © 2018 Copyright:
+                <p>Codeversation</p>
+            </div>
+        </footer>
 
         <!-- jquery, popper, and bootstrap scripts -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import server.models.PostThread;
 import server.repositories.ReplyRepository;
 import server.repositories.PostThreadRepository;
+import server.repositories.UserRepository;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,11 +23,16 @@ public class ForumSectionController {
     @Autowired
     ReplyRepository replyRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping("/general")
     public String getGeneralChat (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("general");
         model.addAttribute("threads", postThread);
         model.addAttribute("category", "General");
+//        String username = userRepository.findOne("username", );
+//        model.addAttribute("username", username);
 
         return "section";
     }
