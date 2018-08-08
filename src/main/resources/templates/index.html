@@ -40,15 +40,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
                 </ul>
-                <p>Logged in as <i th:text="${username}" /></p>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for posts..." aria-label="search">
-                    <button class="btn btn-outline-success my-2 my-sm-0">Submit</button>
-                </form>
+                <div class="btn-group" role="group">
+                    <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
+                    <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
+                </div>
             </div>
         </nav>
         <main>
