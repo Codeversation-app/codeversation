@@ -12,7 +12,7 @@ public class User {
     @SequenceGenerator(name = "user-generator")
     public int id;
     public String username;
-    private String passhash;
+    public String passhash;
     public int status;
 
     // required default constructor

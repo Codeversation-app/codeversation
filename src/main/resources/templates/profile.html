@@ -9,7 +9,13 @@
 
     <p>Logged in as <i th:text="${username}" /></p>
 
-    <p>username</p>
+    <p>username:</p>
+    th:text=${username}
     <p>user picture</p>
+    <p>Change Password:</p>
+<form action="/profile/changepass" method="post">
+    <input name="newPW" type="password" id="input-newPW" class="form-control" placeholder="New Password" required autofocus />
+    <button id="submit-btn" class="btn btn-lg btn-primary btn-block disabled" type="submit">Submit</button>
+</form>
 </body>
 </html>
