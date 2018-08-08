@@ -49,11 +49,15 @@
                 <form class="form-signin" action="/login" method="POST">
                     <img class="mb-4" src="/images/logos/default-user.png" alt-width="72" height="72">
                     <h1 class="h3 mb-3 font-weight-normal">Sign in to continue</h1>
-                    <label for="inputUsername" class="sr-only">Username</label>
-                    <input name="username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus />
-                    <label for="inputPassword" class="sr-only">Username</label>
-                    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus />
-                    <div class="checkbox mb-3">
+                    <div class="form-group">
+                        <label for="inputUsername" class="sr-only">Username</label>
+                        <input name="username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus />
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="sr-only">Username</label>
+                        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus />
+                    </div>
+                    <div class="checkbox form-group">
                         <label>
                             <input type="checkbox" value="remember-me">
                             Remember me
