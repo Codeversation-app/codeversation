@@ -42,6 +42,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }
