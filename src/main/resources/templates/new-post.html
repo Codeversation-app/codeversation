@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,10 +44,6 @@
                         <a class="nav-link" href="/login">Login</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for posts..." aria-label="search">
-                    <button class="btn btn-outline-success my-2 my-sm-0">Submit</button>
-                </form>
             </div>
         </nav>
 
@@ -58,6 +54,7 @@
                         <div class="form-group">
                             <label for="titleFormInput">Title</label>
                             <input type="text" class="form-control" id="titleFormInput" placeholder="Enter a title for your post" name="title">
+                            <input class="form-control" type="text" name="user" th:placeholder="'Posting as ' + ${username}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="categorySelection">Category</label>

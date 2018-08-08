@@ -30,6 +30,7 @@ public class AuthController {
                     model.addAttribute("username",username);
                     HttpSession sesh = request.getSession();
                     sesh.setAttribute("loggedin",true);
+                    sesh.setAttribute("user", checkUser);
                     return "redirect:/forum";
                 }
             }
