@@ -84,7 +84,7 @@ public class AuthController {
         HttpSession session = request.getSession();
         session.setAttribute("loggedin", false);
         model.addAttribute("username", "");
-        return "logout";
+        return "login";
     }
 
 }
