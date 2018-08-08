@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import server.models.PostThread;
-import server.repositories.PostRepository;
+import server.repositories.ReplyRepository;
 import server.repositories.PostThreadRepository;
 
 import java.util.Collections;
@@ -21,12 +20,11 @@ public class ForumSectionController {
     PostThreadRepository postThreadRepository;
 
     @Autowired
-    PostRepository postRepository;
+    ReplyRepository replyRepository;
 
     @RequestMapping("/general")
     public String getGeneralChat (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("general");
-        Collections.sort(postThread);
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -35,7 +33,6 @@ public class ForumSectionController {
     @RequestMapping("/questions")
     public String getQuestions (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("questions");
-        Collections.sort(postThread);
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -44,7 +41,6 @@ public class ForumSectionController {
     @RequestMapping("/collab-corner")
     public String getCollab (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("collab");
-        Collections.sort(postThread);
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -53,7 +49,6 @@ public class ForumSectionController {
     @RequestMapping("/news")
     public String getNews (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("news");
-        Collections.sort(postThread);
         model.addAttribute("threads", postThread);
 
         return "section";
@@ -62,7 +57,6 @@ public class ForumSectionController {
     @RequestMapping("/jobs")
     public String getJobs (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("jobs");
-        Collections.sort(postThread);
         model.addAttribute("threads", postThread);
 
         return "section";

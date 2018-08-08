@@ -1,13 +1,12 @@
 package server.Controllers;
 
-import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import server.models.Post;
-import server.repositories.PostRepository;
+import server.models.PostThread;
+import server.repositories.ReplyRepository;
 import server.repositories.PostThreadRepository;
 import server.repositories.UserRepository;
 
@@ -15,7 +14,7 @@ import server.repositories.UserRepository;
 @RequestMapping("/new-post")
 public class PostController {
     @Autowired
-    PostRepository postRepository;
+    ReplyRepository replyRepository;
 
     @Autowired
     PostThreadRepository postThreadRepository;
@@ -24,17 +23,17 @@ public class PostController {
     UserRepository userRepository;
 
     @RequestMapping
-    public String getPostForm(){
+    public String getThreadForm(){
         return "new-post";
     }
 
     @PostMapping
-    public String createPost(
+    public String createThread(
             @RequestParam String title,
             @RequestParam String category,
             @RequestParam String content
     ) {
-        Post post = postRepository.save(new Post(title, category, content));
+        PostThread thread = postThreadRepository.save(new PostThread(title, category, content));
 
         return "redirect:/forum";
     }
