@@ -21,12 +21,15 @@ public class AuthController {
     @PostMapping("/login")
     public String checkDetails(Model model,
             @RequestParam String username,
-            @RequestParam String password
+            @RequestParam String password,
+            HttpServletRequest request
     ){
         for(User checkUser:userRepository.findAll()){
             if(checkUser.username.equals(username)){
                 if(checkUser.checkPassword(password)){
                     model.addAttribute("username",username);
+                    HttpSession sesh = request.getSession();
+                    sesh.setAttribute("loggedin",true);
                     return "redirect:/forum";
                 }
             }
@@ -38,7 +41,8 @@ public class AuthController {
     public String createUser(
             Model model,
             @RequestParam String username,
-            @RequestParam String password
+            @RequestParam String password,
+            HttpServletRequest request
     ) {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
         for(User checkUser:userRepository.findAll()){
@@ -49,6 +53,8 @@ public class AuthController {
 
         User user = userRepository.save(new User(username, hashed, 0));
 
+        HttpSession sesh = request.getSession();
+        sesh.setAttribute("loggedin",true);
         model.addAttribute("username", username);
 
         return "redirect:/forum";
@@ -74,8 +80,10 @@ public class AuthController {
 //    }
 
     @RequestMapping("/logout")
-    public String logout(Model model) {
-        model.addAttribute("username", null);
+    public String logout(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.setAttribute("loggedin", false);
+        model.addAttribute("username", "");
         return "logout";
     }
 
