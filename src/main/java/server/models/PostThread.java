@@ -4,24 +4,22 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "threads")
-public class PostThread implements Comparable<PostThread> {
+public class PostThread {
     @Id
     @GeneratedValue
     @SequenceGenerator(name = "post-thread-generator")
     public int id;
-    public int originalpostid;
+    public int userid;
     public String title;
     public String category;
-    public int featuredpostid;
+    public String content;
 
     public PostThread (){}
 
-    public PostThread (String title, String category) {
+    public PostThread (String title, String category, String content) {
         this.title = title;
         this.category = category;
+        this.content = content;
     }
 
-    public int compareTo (PostThread p) {
-        return p.featuredpostid - this.featuredpostid;
-    }
 }
