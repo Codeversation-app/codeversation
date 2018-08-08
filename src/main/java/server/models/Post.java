@@ -1,5 +1,7 @@
 package server.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,18 +9,19 @@ import javax.persistence.*;
 public class Post {
     @Id
     @GeneratedValue
-    @SequenceGenerator(name = "post-generator")
+    @SequenceGenerator(name = "posts-generator")
     public int id;
     public String title;
     public String content;
+    public String category;
     public int score;
     public int posterid;
 
     public Post (){}
 
-    public Post (String title, String content, int score) {
+    public Post (String title, String content, String category) {
         this.title = title;
         this.content = content;
-        this.score = score;
+        this.category = category;
     }
 }
