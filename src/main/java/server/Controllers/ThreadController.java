@@ -12,7 +12,7 @@ import server.repositories.UserRepository;
 
 @Controller
 @RequestMapping("/new-post")
-public class PostController {
+public class ThreadController {
     @Autowired
     ReplyRepository replyRepository;
 
