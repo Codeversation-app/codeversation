@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codeversation</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/images/logos/favicon.png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/layout.css" />
+
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><img src="/images/logos/logo-transparent.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/forum/general">General</a>
+                        <a class="dropdown-item" href="/forum/questions">Q & A</a>
+                        <a class="dropdown-item" href="/forum/collab">Collab</a>
+                        <a class="dropdown-item" href="/forum/news">Tech News</a>
+                        <a class="dropdown-item" href="/forum/jobs">Jobs</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Us</a>
+                </li>
+            </ul>
+            <div class="btn-group" role="group">
+                <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
+                <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">
+                        Meet the team
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row one-em">
+                <div class="col-4">
+                    <h3>Tara Johnson</h3>
+                </div>
+            </div>
+            <div class="row one-em">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <img src="/images/team-photos/tara.jpg">
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-12">
+                    <p>A user experience designer with a passion for digging into and solving problems looking to transition into software development. Raised in Cleveland, she is a super fan of all Cleveland sports teams.#whateverittakes</p>
+                    <div class="btn-group">
+                        <a href="https://github.com/tara-johnson" role="button" class="btn btn-dark" target="_blank"><span class="fab fa-github"> Github</span></a>
+                        <a href="https://www.linkedin.com/in/tarabjohnson/" role="button" class="btn btn-primary" target="_blank"><span class="fab fa-linkedin-in"> Linked In</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row one-em">
+                <div class="col-4">
+                    <h3>Brandon Fenty</h3>
+                </div>
+            </div>
+            <div class="row one-em">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <img src="/images/team-photos/brandon-f.png" width="300px">
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-12">
+                    <p>Hello! I'm a Seattle native, Marine Corps Veteran, and software developer. I previously worked as a residential electrician and served as a communications technician while in the military. I am always looking for new way's to challenge myself and get out of my comfort zone which is what led me to coding. When I'm not shredding code, you can usually find me on some remote peak in the North Cascades! 🤙</p>
+                    <div class="btn-group">
+                        <a href="https://github.com/brandon-fenty" role="button" class="btn btn-dark" target="_blank"><span class="fab fa-github"> Github</span></a>
+                        <a href="https://www.linkedin.com/in/brandon-fenty/" role="button" class="btn btn-primary" target="_blank"><span class="fab fa-linkedin-in"> Linked In</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row one-em">
+                <div class="col-4">
+                    <h3>Panos Kumasaka</h3>
+                </div>
+            </div>
+            <div class="row one-em">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <img src="http://via.placeholder.com/250x300">
+                </div>
+                <div class="col-lg-8 col-md-6 col-sm-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="btn-group">
+                        <a href="https://github.com/spinaltaper" role="button" class="btn btn-dark" target="_blank"><span class="fab fa-github"> Github</span></a>
+                        <a href="https://" role="button" class="btn btn-primary" target="_blank"><span class="fab fa-linkedin-in"> Linked In</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="page-footer bg-dark">
+            <div class="text-center">
+                <a href="https://github.com/Codeversation-app/codeversation" target="_blank"><span class="fab fa-github section-content"></span> Github</a>
+            </div>
+
+            <div class="footer-copyright text-center py-3 font-small">
+                © 2018 Copyright:
+                <p>Codeversation</p>
+            </div>
+        </footer>
+    </main>
+
+<script src="/js/typewriter.js"></script>
+<!-- jquery, popper, and bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
