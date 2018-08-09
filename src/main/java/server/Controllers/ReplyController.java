@@ -62,11 +62,13 @@ public class ReplyController {
 
         List<Reply> repliesByThread = new ArrayList<>();
         Reply currentReply = replyIterator.next();
-        while(replyIterator.hasNext()){
+        while(replyIterator != null){
             if(currentReply.postThread == thread){
                 repliesByThread.add(currentReply);
             }
-            currentReply = replyIterator.next();
+            if(replyIterator.hasNext()) {
+                currentReply = replyIterator.next();
+            }
         }
 
         model.addAttribute("users", users);
@@ -96,7 +98,7 @@ public class ReplyController {
         Iterator<PostThread> threadIterator = threads.iterator();
         PostThread currentThread = new PostThread();
         boolean found = false;
-        while(threadIterator.hasNext() && found == false){
+        while(threadIterator != null && found == false){
             currentThread = threadIterator.next();
             if(currentThread.id == (int) id){
                 found=true;

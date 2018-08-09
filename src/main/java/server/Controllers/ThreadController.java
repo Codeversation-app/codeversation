@@ -54,6 +54,6 @@ public class ThreadController {
         redirectAttributes.addAttribute("category", category);
         redirectAttributes.addAttribute("threadid", thread.id);
 
-        return "redirect:/forum/{category}/{threadid}";
+        return "redirect:/forum/reply/{category}/{threadid}";
     }
 }
