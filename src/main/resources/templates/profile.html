@@ -9,8 +9,8 @@
 
     <p>Logged in as <i th:text="${username}" /></p>
 
-    <p>username:</p>
-    th:text=${username}
+    <p th:text="'username: ' + ${username}"></p>
+
     <p>user picture</p>
     <p>Change Password:</p>
 <form action="/profile/changepass" method="post">

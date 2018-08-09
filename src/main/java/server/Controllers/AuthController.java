@@ -48,6 +48,9 @@ public class AuthController {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
         for(User checkUser:userRepository.findAll()){
             if(checkUser.username.equals(username)){
+                String duplicateUserMessage = "Username already taken. Please try again.";
+                model.addAttribute("duplicateusermessage", duplicateUserMessage);
+              
                 return "redirect:/register";
             }
         }

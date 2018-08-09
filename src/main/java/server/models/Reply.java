@@ -1,7 +1,5 @@
 package server.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,17 +9,30 @@ public class Reply {
     @GeneratedValue
     @SequenceGenerator(name = "replies-generator")
     public int id;
-    public String title;
+//    public String title;
     public String content;
-    public String category;
+    public String date;
     public int score;
-    public int userid;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userid")
+    public User user;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "threadid")
+    public PostThread postThread;
 
     public Reply(){}
 
-    public Reply(String title, String content, String category) {
-        this.title = title;
+    public Reply(String content, String date, User user, PostThread postThread) {
+        this(content, date);
+        this.user = user;
+        this.postThread = postThread;
+    }
+
+    public Reply(String content, String date) {
+//        this.title = title;
         this.content = content;
-        this.category = category;
+        this.date = date;
     }
 }
