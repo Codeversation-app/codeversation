@@ -31,7 +31,7 @@ public class AuthController {
                     HttpSession sesh = request.getSession();
                     sesh.setAttribute("loggedin",true);
                     sesh.setAttribute("user", checkUser);
-                    return "redirect:/forum";
+                    return "redirect:/";
                 }
             }
         }
@@ -48,7 +48,9 @@ public class AuthController {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
         for(User checkUser:userRepository.findAll()){
             if(checkUser.username.equals(username)){
-                return "redirect:register";
+                String duplicateUserMessage = "Username already taken. Please try again.";
+                model.addAttribute("duplicateusermessage", duplicateUserMessage);
+                return "redirect:/register";
             }
         }
 
@@ -58,7 +60,7 @@ public class AuthController {
         sesh.setAttribute("loggedin",true);
         model.addAttribute("username", username);
 
-        return "redirect:/forum";
+        return "redirect:/";
     }
 
     @GetMapping("/login")

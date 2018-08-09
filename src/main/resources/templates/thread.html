@@ -50,7 +50,17 @@
         <main>
             <div class="container">
                 <div class="list-group list-group-flush">
-                    <!--<h1 th:text="${threads.title}"></h1>-->
+                    <ul class="list-group list-group-flush" th:each="thread : ${threads}">
+                        <form>
+                            <input type="hidden" name="threadid" th:placeholder="${thread.id}">
+                        </form>
+                        <li class="list-group-item">
+                            <a href="/forum/${threadId}" class="font-weight-bold" th:text="${thread.title}"></a>
+                            <div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>
+                            <span class="badge badge-primary badge-pill">14</span>
+                            <p th:text="${thread.content}"></p>
+                        </li>
+                    </ul>
 
                 </div>
             </div>

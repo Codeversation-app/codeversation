@@ -13,15 +13,27 @@ public class Reply {
     public int id;
     public String title;
     public String content;
-    public String category;
+    public String date;
     public int score;
-    public int userid;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userid")
+    public User user;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "threadid")
+    public Thread thread;
 
     public Reply(){}
 
-    public Reply(String title, String content, String category) {
+    public Reply(String title, String content, String date, Thread thread, User user) {
+        this(title, content);
+        this.thread = thread;
+        this.user = user;
+    }
+
+    public Reply(String title, String content) {
         this.title = title;
         this.content = content;
-        this.category = category;
     }
 }
