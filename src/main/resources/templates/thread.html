@@ -49,21 +49,52 @@
 
         <main>
             <div class="container">
-                <div class="list-group list-group-flush">
-                    <ul class="list-group list-group-flush" th:each="thread : ${threads}">
-                        <form>
-                            <input type="hidden" name="threadid" th:placeholder="${thread.id}">
-                        </form>
-                        <li class="list-group-item">
-                            <a href="/forum/${threadId}" class="font-weight-bold" th:text="${thread.title}"></a>
-                            <div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>
-                            <span class="badge badge-primary badge-pill">14</span>
-                            <p th:text="${thread.content}"></p>
-                        </li>
-                    </ul>
+                <!--<div class="row">-->
+                    <!--<h1 th:text="${category}"></h1>-->
+                <!--</div>-->
+                <!--<div class="one-em"></div>-->
+                <!--<ul class="list-group list-group-flush" th:each="thread : ${threads}">-->
+                    <!--<li class="list-group-item">-->
+                        <!--<a href="/forum/reply" class="font-weight-bold" th:text="${thread.title}"></a>-->
+                        <!--<div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>-->
+                        <!--<span class="badge badge-primary badge-pill">14</span>-->
+                    <!--</li>-->
+                <!--</ul>-->
 
-                </div>
+                <ul th:text="${replies}"></ul>
+
+
+                <form action="/forum" method="POST">
+                    <div class="form-group">
+                        <label for="postBody">Write your reply here</label>
+                        <textarea class="form-control" id="postBody" rows="3" name="content"></textarea>
+                    </div>
+                    <div>
+                        <a href="/forum" class="btn btn-secondary" role="button">Cancel</a>
+                        <input class="btn btn-primary" type="submit">
+                    </div>
+                </form>
             </div>
+
+
+
+            <!--<div class="container">-->
+                <!--<div class="list-group list-group-flush">-->
+                    <!--<ul class="list-group list-group-flush" th:each="reply : ${threads}">-->
+                        <!--<p th:text="${category}"></p>-->
+                        <!--<form>-->
+                            <!--<input type="hidden" name="threadid" th:placeholder="${replies.}">-->
+                        <!--</form>-->
+                        <!--<li class="list-group-item">-->
+                            <!--<a href="/forum/${threadId}" class="font-weight-bold" th:text="${replies}"></a>-->
+                            <!--<div class="text-secondary small" th:text="'Posted by ' + ${replies} + ' on ' + ${replies}"></div>-->
+                            <!--<span class="badge badge-primary badge-pill">14</span>-->
+                            <!--<p th:text="${replies}"></p>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+
+                <!--</div>-->
+            <!--</div>-->
         </main>
 
         <footer class="page-footer bg-dark">

@@ -1,5 +1,6 @@
 package server.Controllers;
 
+import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,23 +31,23 @@ public class ReplyController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping("/{category}/{threadid}")
+    @RequestMapping("/reply")
     public String getThreadDetail(
-            Model model,
-            @PathVariable("category") String category,
-            @PathVariable("threadid") int threadid
-
+        Model model
+//        @PathVariable("category") String category,
+//        @PathVariable("threadid") int threadid
     ){
-        List<Reply> reply = replyRepository.findByThread(threadid);
-
-        model.addAttribute("threadid", threadid);
+        System.out.println("in getThreadDetail");
+        List<Reply> reply = replyRepository.findAll();
+//
+        model.addAttribute("replies", reply);
 
         return "thread";
     }
 
     @PostMapping
     public String createReply(
-            @RequestParam String title,
+//            @RequestParam String title,
             @RequestParam String content,
             HttpServletRequest request
     ) {
@@ -56,9 +57,8 @@ public class ReplyController {
 
         HttpSession sesh = request.getSession();
         User user = (User) sesh.getAttribute("user");
-        Thread thread = (Thread) sesh.getAttribute("threadid");
-
-        Reply reply = replyRepository.save(new Reply(title, content, date, thread, user));
+        PostThread postThread = (PostThread) sesh.getAttribute("threadid");
+        Reply reply = replyRepository.save(new Reply(content, date, user, postThread));
 
         return "redirect:/forum";
     }

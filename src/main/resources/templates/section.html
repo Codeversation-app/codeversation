@@ -58,7 +58,7 @@
                 <div class="one-em"></div>
                 <ul class="list-group list-group-flush" th:each="thread : ${threads}">
                     <li class="list-group-item">
-                        <a href="/forum/${threadId}" class="font-weight-bold" th:text="${thread.title}"></a>
+                        <a href="/forum/reply" class="font-weight-bold" th:text="${thread.title}"></a>
                         <div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>
                         <span class="badge badge-primary badge-pill">14</span>
                     </li>
