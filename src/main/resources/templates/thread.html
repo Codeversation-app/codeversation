@@ -49,62 +49,49 @@
 
         <main>
             <div class="container">
-                <!--<div class="row">-->
+                <div class="row">
                     <h1 th:text="${thread.category}"></h1>
                 </div>
-                <div class="one-em"></div>
-
-                <p th:text="${thread.title}"></p>
-                <p th:text="${thread.content}"></p>
-                <p th:text="${thread.user.username}"></p>
-                <p th:text="${thread.date}"></p>
-
-            <!--<ul class="list-group list-group-flush" th:each="reply : ${replies}">-->
-                <!--<li class="list-group-item">-->
-                    <!--<div class="text-secondary small" th:text="${reply.content}"></div>-->
-                    <!--<div class="text-secondary small" th:text="'Posted on '${reply.date}"></div>-->
-                    <!--<span class="badge badge-primary badge-pill">14</span>-->
-                <!--</li>-->
-            <!--</ul>-->
-
-                <ul th:each="reply : ${replies}">
-                    <li th:text="${reply.user.username}"></li>
-                    <li th:text="${reply.content}"></li>
-                    <li th:text="${reply.date}"></li>
-                </ul>
-
-
-                <form th:action="'/forum/reply/' + ${thread.category} + '/' + ${thread.id} + '/post'" method="POST">
-                    <div class="form-group">
-                        <label for="postBody">Write your reply here</label>
-                        <textarea class="form-control" id="postBody" rows="3" name="content"></textarea>
+                <div class="col-12 one-em">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 th:text="${thread.title}"></h3>
+                            <span class="font-italic">Posted by: </span><span th:text="${thread.user.username}"></span>
+                            <p class="font-italic" th:text="${thread.date}"></p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text" th:text="${thread.content}"></p>
+                        </div>
                     </div>
-                    <div>
-                        <a href="/forum/general" class="btn btn-secondary" role="button">Cancel</a>
-                        <input class="btn btn-primary" type="submit">
+                </div>
+
+                <div class="col-12 one-em">
+                    <div class="card">
+                        <div th:each="reply : ${replies}">
+                            <div class="card-header">
+                                <span class="font-italic">Posted by: </span><span class="font-bold" th:text="${reply.user.username}"></span>
+                                <p class="font-italic" th:text="${reply.date}"></p>
+                            </div>
+                            <div class="card-body">
+                                <p th:text="${reply.content}"></p>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
+
+                <div class="col-12 one-em">
+                    <form th:action="'/forum/reply/' + ${thread.category} + '/' + ${thread.id} + '/post'" method="POST">
+                        <div class="form-group">
+                            <label for="postBody">Write your reply here</label>
+                            <textarea class="form-control" id="postBody" rows="3" name="content"></textarea>
+                        </div>
+                        <div class="btn-group">
+                            <a href="/forum/general" class="btn btn-secondary" role="button">Cancel</a>
+                            <input class="btn btn-primary" type="submit">
+                        </div>
+                    </form>
+                </div>
             </div>
-
-
-
-            <!--<div class="container">-->
-                <!--<div class="list-group list-group-flush">-->
-                    <!--<ul class="list-group list-group-flush" th:each="reply : ${threads}">-->
-                        <!--<p th:text="${category}"></p>-->
-                        <!--<form>-->
-                            <!--<input type="hidden" name="threadid" th:placeholder="${replies.}">-->
-                        <!--</form>-->
-                        <!--<li class="list-group-item">-->
-                            <!--<a href="/forum/${threadId}" class="font-weight-bold" th:text="${replies}"></a>-->
-                            <!--<div class="text-secondary small" th:text="'Posted by ' + ${replies} + ' on ' + ${replies}"></div>-->
-                            <!--<span class="badge badge-primary badge-pill">14</span>-->
-                            <!--<p th:text="${replies}"></p>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-
-                <!--</div>-->
-            <!--</div>-->
         </main>
 
         <footer class="page-footer bg-dark">
