@@ -68,7 +68,9 @@
             <!--</ul>-->
 
                 <ul th:each="reply : ${replies}">
+                    <li th:text="${reply.user.username}"></li>
                     <li th:text="${reply.content}"></li>
+                    <li th:text="${reply.date}"></li>
                 </ul>
 
 
