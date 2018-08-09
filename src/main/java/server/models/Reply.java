@@ -18,7 +18,7 @@ public class Reply {
     @JoinColumn(name = "userid")
     public User user;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "threadid")
     public PostThread postThread;
 

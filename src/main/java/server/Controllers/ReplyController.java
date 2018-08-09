@@ -15,7 +15,9 @@ import server.repositories.UserRepository;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -31,23 +33,55 @@ public class ReplyController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping("/reply")
+    @RequestMapping("/reply/{category}/{id}")
     public String getThreadDetail(
-        Model model
-//        @PathVariable("category") String category,
-//        @PathVariable("threadid") int threadid
+            @PathVariable("category") String category,
+            @PathVariable("id") String id,
+            Model model
     ){
+        Long intid = Long.parseLong(id);
         System.out.println("in getThreadDetail");
-        List<Reply> reply = replyRepository.findAll();
-//
-        model.addAttribute("replies", reply);
+        List<User> users = userRepository.findAll();
+        System.out.println(userRepository.findAll().get(0).username);
+
+        List<PostThread> threads = postThreadRepository.findAll();
+        System.out.println(postThreadRepository.findAll().get(0).id);
+        Iterator<PostThread> threadIterator = threads.iterator();
+        PostThread thread = threadIterator.next();
+        while(thread.id != intid){
+            thread = threadIterator.next();
+            if(thread == null){
+                return "/forum";
+            }
+        }
+
+        List<Reply> replies = replyRepository.findAll();
+        System.out.println(replyRepository.findAll().get(0).postThread.content);
+
+        Iterator<Reply> replyIterator = replies.iterator();
+
+        List<Reply> repliesByThread = new ArrayList<>();
+        Reply currentReply = replyIterator.next();
+        while(replyIterator.hasNext()){
+            if(currentReply.postThread == thread){
+                repliesByThread.add(currentReply);
+            }
+            currentReply = replyIterator.next();
+        }
+
+        model.addAttribute("users", users);
+        model.addAttribute("threads", threads);
+        model.addAttribute("replies", repliesByThread);
+        model.addAttribute("category", category);
+        model.addAttribute("thread",thread);
 
         return "thread";
     }
 
-    @PostMapping
+    @PostMapping("/reply/{category}/{id}/post")
     public String createReply(
-//            @RequestParam String title,
+            @PathVariable long id,
+            @PathVariable String category,
             @RequestParam String content,
             HttpServletRequest request
     ) {
@@ -57,9 +91,23 @@ public class ReplyController {
 
         HttpSession sesh = request.getSession();
         User user = (User) sesh.getAttribute("user");
-        PostThread postThread = (PostThread) sesh.getAttribute("threadid");
-        Reply reply = replyRepository.save(new Reply(content, date, user, postThread));
 
-        return "redirect:/forum";
+        List threads = postThreadRepository.findAll();
+        Iterator<PostThread> threadIterator = threads.iterator();
+        PostThread currentThread = new PostThread();
+        boolean found = false;
+        while(threadIterator.hasNext() && found == false){
+            currentThread = threadIterator.next();
+            if(currentThread.id == (int) id){
+                found=true;
+            }
+        }
+        if(found = false){
+            return "redirect:/forum/reply/{category}/{id}";
+        }
+
+        Reply reply = replyRepository.save(new Reply(content, date, user, currentThread));
+
+        return "redirect:/forum/reply/{category}/{id}";
     }
 }

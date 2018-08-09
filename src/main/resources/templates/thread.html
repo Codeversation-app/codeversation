@@ -50,27 +50,35 @@
         <main>
             <div class="container">
                 <!--<div class="row">-->
-                    <!--<h1 th:text="${category}"></h1>-->
-                <!--</div>-->
-                <!--<div class="one-em"></div>-->
-                <!--<ul class="list-group list-group-flush" th:each="thread : ${threads}">-->
-                    <!--<li class="list-group-item">-->
-                        <!--<a href="/forum/reply" class="font-weight-bold" th:text="${thread.title}"></a>-->
-                        <!--<div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>-->
-                        <!--<span class="badge badge-primary badge-pill">14</span>-->
-                    <!--</li>-->
-                <!--</ul>-->
+                    <h1 th:text="${thread.category}"></h1>
+                </div>
+                <div class="one-em"></div>
 
-                <ul th:text="${replies}"></ul>
+                <p th:text="${thread.title}"></p>
+                <p th:text="${thread.content}"></p>
+                <p th:text="${thread.user.username}"></p>
+                <p th:text="${thread.date}"></p>
+
+            <!--<ul class="list-group list-group-flush" th:each="reply : ${replies}">-->
+                <!--<li class="list-group-item">-->
+                    <!--<div class="text-secondary small" th:text="${reply.content}"></div>-->
+                    <!--<div class="text-secondary small" th:text="'Posted on '${reply.date}"></div>-->
+                    <!--<span class="badge badge-primary badge-pill">14</span>-->
+                <!--</li>-->
+            <!--</ul>-->
+
+                <ul th:each="reply : ${replies}">
+                    <li th:text="${reply.content}"></li>
+                </ul>
 
 
-                <form action="/forum" method="POST">
+                <form th:action="'/forum/reply/' + ${thread.category} + '/' + ${thread.id} + '/post'" method="POST">
                     <div class="form-group">
                         <label for="postBody">Write your reply here</label>
                         <textarea class="form-control" id="postBody" rows="3" name="content"></textarea>
                     </div>
                     <div>
-                        <a href="/forum" class="btn btn-secondary" role="button">Cancel</a>
+                        <a href="/forum/general" class="btn btn-secondary" role="button">Cancel</a>
                         <input class="btn btn-primary" type="submit">
                     </div>
                 </form>
