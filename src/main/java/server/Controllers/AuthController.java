@@ -31,7 +31,7 @@ public class AuthController {
                     HttpSession sesh = request.getSession();
                     sesh.setAttribute("loggedin",true);
                     sesh.setAttribute("user", checkUser);
-                    return "redirect:/forum";
+                    return "redirect:/";
                 }
             }
         }
@@ -48,7 +48,7 @@ public class AuthController {
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
         for(User checkUser:userRepository.findAll()){
             if(checkUser.username.equals(username)){
-                return "redirect:register";
+                return "redirect:/register";
             }
         }
 
