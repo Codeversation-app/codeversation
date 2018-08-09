@@ -62,7 +62,7 @@ public class ReplyController {
 
         List<Reply> repliesByThread = new ArrayList<>();
         Reply currentReply = replyIterator.next();
-        while(replyIterator != null){
+        while(replyIterator.hasNext()){
             if(currentReply.postThread == thread){
                 repliesByThread.add(currentReply);
             }
