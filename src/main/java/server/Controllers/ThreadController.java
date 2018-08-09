@@ -51,7 +51,8 @@ public class ThreadController {
         PostThread thread = postThreadRepository.save(new PostThread(title, category, content, date, user));
 
         redirectAttributes.addAttribute("category", category);
+        redirectAttributes.addAttribute("threadid", thread.id);
 
-        return "redirect:/forum/{category}";
+        return "redirect:/forum/{category}/{threadid}";
     }
 }
