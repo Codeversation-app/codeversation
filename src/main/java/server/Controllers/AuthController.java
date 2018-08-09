@@ -58,7 +58,7 @@ public class AuthController {
         sesh.setAttribute("loggedin",true);
         model.addAttribute("username", username);
 
-        return "redirect:/forum";
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
