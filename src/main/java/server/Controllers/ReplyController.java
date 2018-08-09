@@ -62,12 +62,15 @@ public class ReplyController {
 
         List<Reply> repliesByThread = new ArrayList<>();
         Reply currentReply = replyIterator.next();
-        while(replyIterator.hasNext()){
+      
+        boolean end = false;
+        while(end == false){
+
             if(currentReply.postThread == thread){
                 repliesByThread.add(currentReply);
             }
-            if(replyIterator.hasNext()) {
-                currentReply = replyIterator.next();
+            if(replyIterator.hasNext()){currentReply = replyIterator.next();}else{
+                end = true;
             }
         }
 
