@@ -42,6 +42,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }
@@ -68,6 +69,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }
@@ -78,7 +80,7 @@ public class ForumSectionController {
         return "section";
     }
 
-    @RequestMapping("/collab-corner")
+    @RequestMapping("/collabgi")
     public String getCollab (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("collab");
         Iterator<PostThread> iterator = postThread.iterator();
@@ -92,6 +94,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }
@@ -116,6 +119,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }
@@ -140,6 +144,7 @@ public class ForumSectionController {
             while(iterator.hasNext()) {
                 postOrder.push(iterator.next());
             }
+            postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());
             }

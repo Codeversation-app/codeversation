@@ -50,6 +50,7 @@ public class AuthController {
             if(checkUser.username.equals(username)){
                 String duplicateUserMessage = "Username already taken. Please try again.";
                 model.addAttribute("duplicateusermessage", duplicateUserMessage);
+              
                 return "redirect:/register";
             }
         }
@@ -60,7 +61,7 @@ public class AuthController {
         sesh.setAttribute("loggedin",true);
         model.addAttribute("username", username);
 
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
