@@ -3,6 +3,7 @@ package server.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import server.models.PostThread;
 import server.models.User;
 import server.repositories.ReplyRepository;
@@ -38,20 +39,19 @@ public class ThreadController {
             @RequestParam String title,
             @RequestParam String category,
             @RequestParam String content,
-            HttpServletRequest request
+            HttpServletRequest request,
+            RedirectAttributes redirectAttributes
     ) {
         String pattern = "MMM dd yyyy HH:mm a z";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
 
-
-
-        System.out.println(date);
-
         HttpSession sesh = request.getSession();
         User user = (User) sesh.getAttribute("user");
         PostThread thread = postThreadRepository.save(new PostThread(title, category, content, date, user));
 
-        return "redirect:/forum";
+        redirectAttributes.addAttribute("category", category);
+
+        return "redirect:/forum/{category}";
     }
 }

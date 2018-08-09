@@ -18,6 +18,6 @@ public class ForumController {
             return "redirect:/login";
         }
         //These both need warnings so the user logs back in.
-         return "forum";
+         return "index";
     }
 }

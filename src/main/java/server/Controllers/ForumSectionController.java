@@ -80,7 +80,7 @@ public class ForumSectionController {
         return "section";
     }
 
-    @RequestMapping("/collab-corner")
+    @RequestMapping("/collab")
     public String getCollab (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("collab");
         Iterator<PostThread> iterator = postThread.iterator();
