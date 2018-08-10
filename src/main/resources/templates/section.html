@@ -65,7 +65,6 @@
                     <li class="list-group-item">
                         <a th:href="'/forum/reply/' + ${thread.category} + '/' + ${thread.id.toString()}" class="font-weight-bold" th:text="${thread.title}"></a>
                         <div class="text-secondary small" th:text="'Posted by ' + ${thread.user.username} + ' on ' + ${thread.date}"></div>
-                        <span class="badge badge-primary badge-pill">14</span>
                     </li>
                 </ul>
             </div>

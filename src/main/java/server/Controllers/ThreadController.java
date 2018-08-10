@@ -43,16 +43,22 @@ public class ThreadController {
             HttpServletRequest request,
             RedirectAttributes redirectAttributes
     ) {
-        String pattern = "MMM dd yyyy HH:mm a z";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
-
         HttpSession sesh = request.getSession();
-        User user = (User) sesh.getAttribute("user");
-        PostThread thread = postThreadRepository.save(new PostThread(title, category, content, date, user));
+        Object loginStatus = sesh.getAttribute("loggedin");
 
-        redirectAttributes.addAttribute("category", category);
-        redirectAttributes.addAttribute("threadid", thread.id);
+        if (loginStatus == null) {
+            return "redirect:/login";
+        } else {
+            String pattern = "MMM dd yyyy HH:mm a z";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            String date = simpleDateFormat.format(new Date());
+
+            User user = (User) sesh.getAttribute("user");
+            PostThread thread = postThreadRepository.save(new PostThread(title, category, content, date, user));
+
+            redirectAttributes.addAttribute("category", category);
+            redirectAttributes.addAttribute("threadid", thread.id);
+        }
 
         return "redirect:/forum/reply/{category}/{threadid}";
     }
