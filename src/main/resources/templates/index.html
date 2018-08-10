@@ -67,23 +67,23 @@
                             <li class="list-group-item">
                                 <!-- use a thymeleaf template instead of hard coded numbers to display the number of new posts -->
                                 <a href="/forum/general">General Chat</a>
-                                <span class="badge badge-primary badge-pill float-right">25</span>
+                                <span class="badge badge-primary badge-pill float-right"><p th:text="${numberOfThreads.get(0)}"></p></span>
                             </li>
                             <li class="list-group-item">
                                 <a href="/forum/questions ">Questions &amp; Answers</a>
-                                <span class="badge badge-primary badge-pill float-right">14</span>
+                                <span class="badge badge-primary badge-pill float-right"><p th:text="${numberOfThreads.get(1)}"></p></span>
                             </li>
                             <li class="list-group-item">
                                 <a href="/forum/collab">Collaboration Corner</a>
-                                <span class="badge badge-primary badge-pill float-right">2</span>
+                                <span class="badge badge-primary badge-pill float-right"><p th:text="${numberOfThreads.get(2)}"></p></span>
                             </li>
                             <li class="list-group-item">
                                 <a href="/forum/news">Tech News</a>
-                                <span class="badge badge-primary badge-pill float-right">9</span>
+                                <span class="badge badge-primary badge-pill float-right"><p th:text="${numberOfThreads.get(3)}"></p></span>
                             </li>
                             <li class="list-group-item">
                                 <a href="/forum/jobs">Job Postings</a>
-                                <span class="badge badge-primary badge-pill float-right">13</span>
+                                <span class="badge badge-primary badge-pill float-right"><p th:text="${numberOfThreads.get(4)}"></p></span>
                             </li>
                         </ul>
                     </div>
