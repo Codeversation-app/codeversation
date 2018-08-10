@@ -131,25 +131,9 @@
                     <div class="col-sm-12 col-md-12 col-lg-4 section-content">
                         <h3 class="lead">New Questions</h3>
                         <ul class="list-group">
-                            <li class="list-group-item">
+                            <li class="list-group-item" th:each="question : ${questions}">
                                 <!-- use a thymeleaf template instead of hard coded questions -->
-                                <a href="/forum/questions/${id}">How do I commit?</a>
-                                <span class="badge badge-secondary float-right">New</span>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/questions/${id}">Is JavaScript just Java?</a>
-                                <span class="badge badge-secondary float-right">New</span>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/questions/${id}">What is CSS?</a>
-                                <span class="badge badge-secondary float-right">New</span>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/questions/${id}">What is love?</a>
-                                <span class="badge badge-secondary float-right">New</span>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/questions/${id}">Why do I suck at coding?</a>
+                                <a th:href="'/forum/reply/questions/' + ${question.id.toString()}" th:text="${question.title}"></a>
                                 <span class="badge badge-secondary float-right">New</span>
                             </li>
                         </ul>
