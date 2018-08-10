@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "threads")
 @SessionAttributes("username")
-public class PostThread {
+public class PostThread implements Comparable<PostThread> {
     @Id
     @GeneratedValue
     @SequenceGenerator(name = "post-thread-generator")
@@ -38,5 +38,13 @@ public class PostThread {
         this.category = category;
         this.content = content;
         this.date = date;
+    }
+
+    public int compareTo(PostThread other) {
+        // this one is always greater than null
+        if (other == null) {
+            return 1;
+        }
+        return other.date.compareTo(this.date);
     }
 }
