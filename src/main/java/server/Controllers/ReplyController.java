@@ -38,6 +38,9 @@ public class ReplyController {
             @PathVariable("id") String id,
             Model model
     ){
+        if(userRepository.findByUsername(model.asMap().get("username").toString()).get(0).status==0){
+            return "/banned";
+        }
         Long intid = Long.parseLong(id);
         System.out.println("in getThreadDetail");
         List<User> users = userRepository.findAll();
