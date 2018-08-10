@@ -41,12 +41,15 @@ public class ThreadController {
             @RequestParam String category,
             @RequestParam String content,
             HttpServletRequest request,
-            RedirectAttributes redirectAttributes
+            RedirectAttributes redirectAttributes,
+            Model model
     ) {
         HttpSession sesh = request.getSession();
         Object loginStatus = sesh.getAttribute("loggedin");
 
-        if (loginStatus == null) {
+        if (userRepository.findByUsername(model.asMap().get("username").toString()).get(0).status==9){
+            return "/banned";
+        } else if (loginStatus == null) {
             return "redirect:/login";
         } else {
             String pattern = "MMM dd yyyy HH:mm a z";
