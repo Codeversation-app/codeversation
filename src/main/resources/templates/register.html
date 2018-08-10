@@ -41,6 +41,11 @@
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
                 </ul>
+
+                <div class="mr-3">
+                    <span class="text-light" th:if="${username != null}" th:text="'Logged in as ' + ${username}"></span>
+                </div>
+
                 <div class="btn-group" role="group">
                     <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
                     <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
@@ -53,7 +58,7 @@
                 <form class="form-signin" action="/register" method="POST">
                     <img class="mb-4" src="/images/logos/default-user.png" alt-width="72" height="72">
                     <h1 class="h3 mb-3 font-weight-normal">Register new account</h1>
-                    <p th:text="${duplicateusermessage}"></p>
+                    <p th:if="${dupeuser == true}" th:text="'Username is already taken, please select another.'"></p>
                     <div class="form-group">
                         <label for="input-username" class="sr-only">Username</label>
                         <input name="username" type="username" id="input-username" class="form-control" placeholder="Username" required autofocus />

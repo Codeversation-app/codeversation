@@ -49,8 +49,6 @@ public class ForumSectionController {
         }
         model.addAttribute("threads", postThread);
         model.addAttribute("category", "General");
-//        String username = userRepository.findOne("username", );
-//        model.addAttribute("username", username);
 
         return "section";
     }
