@@ -41,6 +41,11 @@
                     <a class="nav-link" href="/about">About Us</a>
                 </li>
             </ul>
+
+            <div class="mr-3">
+                <span class="text-light" th:if="${username != null}" th:text="'Logged in as ' + ${username}"></span>
+            </div>
+
             <div class="btn-group" role="group">
                 <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
                 <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
