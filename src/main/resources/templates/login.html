@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +58,9 @@
                 <form class="form-signin" action="/login" method="POST">
                     <img class="mb-4" src="/images/logos/default-user.png" alt-width="72" height="72">
                     <h1 class="h3 mb-3 font-weight-normal">Sign in to continue</h1>
+
+                    <p class="alert alert-warning" role="alert" th:if="${wrongpass == true}" th:text="'Incorrect password, please try again.'"></p>
+
                     <div class="form-group">
                         <label for="inputUsername" class="sr-only">Username</label>
                         <input name="username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus />
