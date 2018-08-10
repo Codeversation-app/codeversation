@@ -77,7 +77,7 @@ public class ReplyController {
         model.addAttribute("threads", threads);
         model.addAttribute("replies", repliesByThread);
         model.addAttribute("category", category);
-        model.addAttribute("thread",thread);
+        model.addAttribute("thread", thread);
 
         return "thread";
     }
