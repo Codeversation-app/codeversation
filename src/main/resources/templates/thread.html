@@ -83,7 +83,7 @@
                     <form th:action="'/forum/reply/' + ${thread.category} + '/' + ${thread.id} + '/post'" method="POST">
                         <div class="form-group">
                             <label for="postBody">Write your reply here</label>
-                            <textarea class="form-control" id="postBody" rows="3" name="content"></textarea>
+                            <textarea class="form-control" id="postBody" rows="3" name="content" required></textarea>
                         </div>
                         <div class="btn-group">
                             <a href="/forum/general" class="btn btn-secondary" role="button">Cancel</a>
