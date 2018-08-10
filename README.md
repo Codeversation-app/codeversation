@@ -1,21 +1,26 @@
 # codeversation
-A forum modeled after Reddit where students can chat, pose questions to have answered by their peers, post news articles, etc.
+A persistent chat app for students/developers to ask questions that can be answered by anyone in their peer group, chat about general topics, post job openings, and share tech news.
 
-## User stories
+https://codeversation-app.herokuapp.com/
 
-- As a developer, I want a place where I can interact with other developers in my peer group so that I can be a part of the community.  
-- As a developer, I want to be able to ask questions of fellow developers so that I can learn from my peers.  
-- As a developer, I want to be able to respond to questions asked by fellow developers so that I can share my knowledge with my peer group.
-- As a developer, I want to a place where I can share current tech news with my peers so that I hear what others have to say about the topic.
-- As a developer, I want to a place where I can read tech news shared by my peers so that I can be knowledgable about current events.
+# Developing and Contributing
+You can contribute to this project by doing a couple things:
+- First, propose an issue to let us know you're working on the project.
+- Next, fork the repo and create a branch to work on.
+- When your work is complete, submit a pull request for review. If we like what you've submitted, we'll add it to the project! We'll notify you if your change is accepted.
 
-- As a student, I want a place where I can interact with other developers in my peer group so that I can be a part of the community.
-- As a student, I want a place where I can ask questions to anyone in my community so that I can learn from my peers.
-- As a student, I want a place where I can answer questions asked by anyone in my community so that I can share my knowledge with my peers.
-- As a student, I want to a place where I can share current tech news with my peers so that I hear what others have to say about the topic.
-- As a student, I want to a place where I can read tech news shared by my peers so that I can be knowledgable about current events.
+# Architecture
+- Front-end: HTML, CSS, JavaScript, jQuery, Bootstrap 4.0, FontAwesome 4.7, Thymeleaf
+- Back-end: Java, SpringBoot, Jpa/Hibernate, Postgresql, BCrypt, Gradle
 
-- As a job seeker, I want a resource where I can look at job postings so that I can understand the job market and ultimately apply for relevant positions.
+# Contributors
+Original development team consists of:
+- Brandon Fenty
+- Tara Johnson
+- Panos Kumasaka
 
-- As an administrator, I want the ability to close out topics that don't follow the guidelines of the forum to maintain the integrity of the site.
-- As an administrator, I want the ability to ban users who don't follow the guidelines of the forum to maintain the integrity of the site.
+### Special Credit
+- Steve Geluso
+- Molly Kent
+- Darcy McCabe
+- Tyler Pearson
