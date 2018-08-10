@@ -52,9 +52,11 @@ public class ForumSectionController {
         }
         model.addAttribute("threads", postThread);
         model.addAttribute("category", "General");
+
         //model.addAttribute("replyNumbers",numberOfReplies);
-//        String username = userRepository.findOne("username", );
-//        model.addAttribute("username", username);
+        //String username = userRepository.findOne("username", );
+        //model.addAttribute("username", username);
+
 
         return "section";
     }
@@ -84,7 +86,7 @@ public class ForumSectionController {
         return "section";
     }
 
-    @RequestMapping("/collabgi")
+    @RequestMapping("/collab")
     public String getCollab (Model model) {
         List<PostThread> postThread = postThreadRepository.findByCategory("collab");
         Iterator<PostThread> iterator = postThread.iterator();

@@ -41,6 +41,11 @@
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
                 </ul>
+
+                <div class="mr-3">
+                    <span class="text-light" th:if="${username != null}" th:text="'Logged in as ' + ${username}"></span>
+                </div>
+
                 <div class="btn-group" role="group">
                     <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
                     <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
@@ -61,11 +66,10 @@
 
             <section class="container" id="topics">
                 <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-4 section-content">
+                    <div class="col-sm-12 col-md-12 col-lg-6 section-content">
                         <h3 class="lead">Topics</h3>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <!-- use a thymeleaf template instead of hard coded numbers to display the number of new posts -->
                                 <a href="/forum/general">General Chat</a>
                                 <span class="badge badge-primary badge-pill float-right"><p th:text="${numberOfThreads.get(0)}"></p></span>
                             </li>
@@ -87,52 +91,11 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4 section-content">
-                        <h3 class="lead">Trending Posts</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <!-- use a thymeleaf template instead of hard coded topics and upvotes/downvotes -->
-                                <a href="/forum/general/${postId}">Random Post 1</a>
-                                <div class="float-right">
-                                    <span class="fa fa-angle-up" style="color: green;"></span> 15 
-                                    <span class="fa fa-angle-down" style="color: red;"></span> 2
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/questions/${postId}">Random Post 2</a>
-                                <div class="float-right">
-                                    <span class="fa fa-angle-up" style="color: green;"></span> 14 
-                                    <span class="fa fa-angle-down" style="color: red;"></span> 2
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/collab-corner/${postId}">Random Post 3</a>
-                                <div class="float-right">
-                                    <span class="fa fa-angle-up" style="color: green;"></span> 10 
-                                    <span class="fa fa-angle-down" style="color: red;"></span> 0
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/news/${postId}">Random Post 4</a>
-                                <div class="float-right">
-                                    <span class="fa fa-angle-up" style="color: green;"></span> 8 
-                                    <span class="fa fa-angle-down" style="color: red;"></span> 0
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="/forum/jobs/${postId}">Random Post 5</a>
-                                <div class="float-right">
-                                    <span class="fa fa-angle-up" style="color: green;"></span> 9 
-                                    <span class="fa fa-angle-down" style="color: red;"></span> 3
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-4 section-content">
-                        <h3 class="lead">New Questions</h3>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 section-content">
+                        <h3 class="lead">Most Recent Questions</h3>
                         <ul class="list-group">
                             <li class="list-group-item" th:each="question : ${questions}">
-                                <!-- use a thymeleaf template instead of hard coded questions -->
                                 <a th:href="'/forum/reply/questions/' + ${question.id.toString()}" th:text="${question.title}"></a>
                                 <span class="badge badge-secondary float-right">New</span>
                             </li>
@@ -162,9 +125,8 @@
                     <a href="https://github.com/Codeversation-app/codeversation" target="_blank"><span class="fab fa-github section-content"></span> Github</a>
                 </div>
                 
-                <div class="footer-copyright text-center py-3 font-small">
-                    © 2018 Copyright: 
-                    <p>Codeversation</p>
+                <div class="footer-copyright text-center text-secondary py-3 font-small">
+                    © 2018 Codeversation
                 </div>
             </footer>
         </main>

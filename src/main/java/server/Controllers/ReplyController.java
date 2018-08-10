@@ -109,12 +109,18 @@ public class ReplyController {
                 found=true;
             }
         }
-        if(found = false){
+        
+        if (found = false) {
             return "redirect:/forum/reply/{category}/{id}";
         }
 
-        Reply reply = replyRepository.save(new Reply(content, date, user, currentThread));
+        Object loginStatus = sesh.getAttribute("loggedin");
 
-        return "redirect:/forum/reply/{category}/{id}";
+        if (loginStatus == null) {
+            return "redirect:/login";
+        } else {
+            Reply reply = replyRepository.save(new Reply(content, date, user, currentThread));
+            return "redirect:/forum/reply/{category}/{id}";
+        }
     }
 }

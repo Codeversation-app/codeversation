@@ -40,6 +40,11 @@
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
                 </ul>
+
+                <div class="mr-3">
+                    <span class="text-light" th:if="${username != null}" th:text="'Logged in as ' + ${username}"></span>
+                </div>
+
                 <div class="btn-group" role="group">
                     <a href="/login" role="button" class="btn btn-primary float-right">Login</a>
                     <a href="/logout" role="button" class="btn btn-secondary float-right">Logout</a>
@@ -49,7 +54,7 @@
 
         <main>
             <div class="container">
-                <div class="row">
+                <div class="container">
                     <h1 th:text="${thread.category}"></h1>
                 </div>
                 <div class="col-12 one-em">
@@ -86,7 +91,7 @@
                             <textarea class="form-control" id="postBody" rows="3" name="content" required></textarea>
                         </div>
                         <div class="btn-group">
-                            <a href="/forum/general" class="btn btn-secondary" role="button">Cancel</a>
+                            <a th:href="'/forum/' + ${thread.category}" class="btn btn-secondary" role="button">Cancel</a>
                             <input class="btn btn-primary" type="submit">
                         </div>
                     </form>
@@ -99,9 +104,8 @@
                 <a href="https://github.com/Codeversation-app/codeversation" target="_blank"><span class="fab fa-github section-content"></span> Github</a>
             </div>
 
-            <div class="footer-copyright text-center py-3 font-small">
-                © 2018 Copyright:
-                <p>Codeversation</p>
+            <div class="footer-copyright text-center py-3 text-secondary font-small">
+                © 2018 Codeversation
             </div>
         </footer>
 

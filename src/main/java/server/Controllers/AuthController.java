@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@SessionAttributes("username")
+@SessionAttributes({"username", "dupeuser", "wrongpass"})
 public class AuthController {
     @Autowired
     UserRepository userRepository;
@@ -24,14 +24,23 @@ public class AuthController {
             @RequestParam String password,
             HttpServletRequest request
     ){
+        HttpSession sesh = request.getSession();
+        boolean wrongPass = false;
+
         for(User checkUser:userRepository.findAll()){
             if(checkUser.username.equals(username)){
                 if(checkUser.checkPassword(password)){
                     model.addAttribute("username",username);
-                    HttpSession sesh = request.getSession();
                     sesh.setAttribute("loggedin",true);
                     sesh.setAttribute("user", checkUser);
+                    sesh.setAttribute("wrongpass", wrongPass);
+
                     return "redirect:/";
+                } else if (checkUser.checkPassword(password) != true) {
+                    wrongPass = true;
+                    sesh.setAttribute("wrongpass", wrongPass);
+
+                    return "redirect:/login";
                 }
             }
         }
@@ -45,19 +54,22 @@ public class AuthController {
             @RequestParam String password,
             HttpServletRequest request
     ) {
+        HttpSession sesh = request.getSession();
+        boolean dupeuser = false;
+
         String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
         for(User checkUser:userRepository.findAll()){
             if(checkUser.username.equals(username)){
-                String duplicateUserMessage = "Username already taken. Please try again.";
-                model.addAttribute("duplicateusermessage", duplicateUserMessage);
+                dupeuser = true;
+                sesh.setAttribute("dupeuser", dupeuser);
               
                 return "redirect:/register";
             }
         }
 
+        sesh.setAttribute("dupeuser", dupeuser);
         User user = userRepository.save(new User(username, hashed, 0));
 
-        HttpSession sesh = request.getSession();
         sesh.setAttribute("loggedin",true);
         model.addAttribute("username", username);
 
@@ -70,8 +82,7 @@ public class AuthController {
     }
 
     @GetMapping("/register")
-    public String getRegisterForm(
-    ) {
+    public String getRegisterForm() {
         return "register";
     }
 
