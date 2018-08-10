@@ -33,18 +33,18 @@ public class ForumSectionController {
         List<PostThread> postThread = postThreadRepository.findByCategory("general");
         Iterator<PostThread> iterator = postThread.iterator();
         LinkedList<PostThread> postOrder = new LinkedList<>();
-        LinkedList<Integer> numberOfReplies = new LinkedList<>();
+        //LinkedList<Integer> numberOfReplies = new LinkedList<>();
         //if(model.asMap().get("sortMethod")=="score"){
         //    Collections.sort(postThread,score);
         //}
         //This boolean is just here as a placeholder so the site can be ran before we have everything set up.
         if(false){}
         else{
-        //    while(iterator.hasNext()) {
+            while(iterator.hasNext()) {
         //        PostThread bleh = iterator.next();
-        //        postOrder.push(iterator.next());
+                postOrder.push(iterator.next());
         //        numberOfReplies.push(replyRepository.findByPostThread(postOrder.peek().id).size());
-        //    }
+            }
             postThread.removeAll(postThread);
             while(!postOrder.isEmpty()){
                 postThread.add(postOrder.pop());

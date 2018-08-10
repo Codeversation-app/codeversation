@@ -39,7 +39,7 @@ public class AdminController {
 
         List<User> users = userRepository.findByUsername(targetUser);
         User target = users.get(0);
-        target.status = 0;
+        target.status = 9;
         target.username += "(Banned)";
         userRepository.save(target);
         return "/forum";
